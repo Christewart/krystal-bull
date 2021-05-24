@@ -111,7 +111,7 @@ jobs:
       - name: View artifacts
         run: dir
       - name: Package app image as msi
-        run: "jpackage --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi --app-image krystalbull.app"
+        run: "jpackage --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi --app-image krystalbull"
       - name: View artifacts
         run: dir
       - name: Upload installer
