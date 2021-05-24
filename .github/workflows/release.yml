@@ -106,8 +106,12 @@ jobs:
         run: sbt assembly
       - name: View assembly artifacts
         run: dir
-      - name: Package jar as msi
-        run: "jpackage --win-shortcut --win-menu --win-menu-group ${{env.pkg-name}} --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi -i target/scala-2.13/ --main-class com.krystal.bull.gui.GUI --main-jar ${{ env.pkg-assembly }} --icon src/main/resources/icons/krystal_bull.ico --verbose"
+      - name: Package jar as app-image
+        run: "jpackage --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type app-image -i target/scala-2.13/ --main-class com.krystal.bull.gui.GUI --main-jar ${{ env.pkg-assembly }} --icon src/main/resources/icons/krystal_bull.ico --verbose"
+      - name: View artifacts
+        run: dir
+      - name: Package app image as msi
+        run: "jpackage --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi --app-image krystalbull.app"
       - name: View artifacts
         run: dir
       - name: Upload installer
