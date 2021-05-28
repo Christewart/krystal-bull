@@ -113,7 +113,7 @@ jobs:
         run: dir
       - name: Package app image as msi
         shell: bash
-        run: "jpackage --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi --app-image krystalbull"
+        run: "jpackage --verbose --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi --app-image ${{env.pkg-name}}"
       - name: View artifacts
         run: dir
       - name: Upload installer
