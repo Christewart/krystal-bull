@@ -100,7 +100,7 @@ jobs:
       - name: Setup Scala
         uses: olafurpg/setup-scala@v10
         with:
-          java-version: openjdk@1.16
+          java-version: openjdk@1.16.0-1
       - name: Build fat jar
         shell: bash
         run: sbt assembly
