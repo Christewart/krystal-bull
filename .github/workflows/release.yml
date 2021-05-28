@@ -100,13 +100,14 @@ jobs:
       - name: Setup Scala
         uses: olafurpg/setup-scala@v10
         with:
-          java-version: openjdk@1.15.0-2
+          java-version: openjdk@1.16
       - name: Build fat jar
         shell: bash
         run: sbt assembly
       - name: View assembly artifacts
         run: dir
       - name: Package jar as app-image
+        shell: bash
         run: "jpackage --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type app-image -i target/scala-2.13/ --main-class com.krystal.bull.gui.GUI --main-jar ${{ env.pkg-assembly }} --icon src/main/resources/icons/krystal_bull.ico --verbose"
       - name: View artifacts
         run: dir
