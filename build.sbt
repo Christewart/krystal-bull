@@ -27,6 +27,7 @@ assemblyMergeStrategy in assembly := {
   case _ => MergeStrategy.first
 }
 
+Compile / doc := (target.value / "none")
 scalacOptions ++= Seq("release", "11")
 
 // general package information (can be scoped to Windows)
