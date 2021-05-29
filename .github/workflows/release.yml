@@ -110,7 +110,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: msis
-          path: "${{ env.pkg-name }}-${{ env.pkg-version }}.msi"
+          path: "D:\a\krystal-bull\krystal-bull\target\windows\krystal-bull.msi"
   linux:
     runs-on: [ubuntu-latest]
     steps:
