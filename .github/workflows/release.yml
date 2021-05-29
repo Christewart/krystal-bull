@@ -101,7 +101,12 @@ jobs:
         uses: olafurpg/setup-scala@v10
         with:
           java-version: adopt@1.16.0-1
-      - name: Build fat jar
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
+      - name: Build msi
         shell: bash
         run: sbt windows:packageBin
       - name: View artifacts
@@ -109,7 +114,7 @@ jobs:
       - name: Upload installer
         uses: actions/upload-artifact@v1
         with:
-          name: msis
+          name: krystal-bull-deb-${{steps.previoustag.outputs.tag}}-${{github.sha}}
           path: "D:\\a\\krystal-bull\\krystal-bull\\target\\windows\\krystal-bull.msi"
   linux:
     runs-on: [ubuntu-latest]
