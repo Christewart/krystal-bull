@@ -111,7 +111,7 @@ jobs:
         run: "jpackage --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type app-image -i target/scala-2.13/ --main-class com.krystal.bull.gui.GUI --main-jar ${{ env.pkg-assembly }} --icon src/main/resources/icons/krystal_bull.ico --verbose"
       - name: View artifacts
         shell: bash
-        run: dir /s /w /p "D:\a\krystal-bull\krystal-bull"
+        run: ls -R .
       - name: Package app image as msi
         shell: bash
         run: "jpackage --verbose --win-shortcut --win-menu --name ${{env.pkg-name}} --app-version ${{ env.pkg-version }} --type msi --app-image ${{env.pkg-name}}"
